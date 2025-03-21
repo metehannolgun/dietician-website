@@ -1,6 +1,20 @@
 import React from 'react';
 import {FaInstagram, FaLinkedin, FaFacebook} from 'react-icons/fa';
 import Footer from '../Components/Footer';
+import {ToastContainer, toast, Bounce} from 'react-toastify';
+
+{/*React toastify  */}
+const notify = () => toast('Mesajınız başarıyla gönderildi! Sağlıklı günler dileriz.',
+  {position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    transition: Bounce,
+});
 
 const Contact = () => {
   return (
@@ -58,11 +72,24 @@ const Contact = () => {
             ></textarea>
           </div>
           <button
+            onClick={notify}
             type="submit"
             className="w-full bg-red-400 text-white font-bold py-2 px-4 rounded-lg hover:bg-red-500 transition duration-300"
           >
             Gönder
           </button>
+          <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition={Bounce} />
         </form>
       </div>
 
